@@ -10,6 +10,8 @@ struct TimelineView: View {
     )
     private var entries: [Entry]
 
+    @State private var showSearch = false
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -31,6 +33,18 @@ struct TimelineView: View {
             }
             .navigationDestination(for: Entry.self) { entry in
                 EntryDetailView(entry: entry)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSearch = true
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
+            }
+            .sheet(isPresented: $showSearch) {
+                SearchView()
             }
         }
     }

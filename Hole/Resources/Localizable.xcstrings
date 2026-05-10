@@ -289,6 +289,41 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "私密密码" } }
       }
     },
+    "search.empty.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search by keyword, mood, or tag." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "可按关键词、心情或标签搜索。" } }
+      }
+    },
+    "search.empty.idle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search your hole" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索你的树洞" } }
+      }
+    },
+    "search.empty.noMatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No matches" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "暂无匹配" } }
+      }
+    },
+    "search.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索…" } }
+      }
+    },
+    "search.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索" } }
+      }
+    },
     "tab.calendar" : {
       "extractionState" : "manual",
       "localizations" : {
