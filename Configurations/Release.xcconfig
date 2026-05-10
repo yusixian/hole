@@ -1,0 +1,9 @@
+// Release / Production environment
+
+ENVIRONMENT = production
+BUNDLE_ID = io.mewtant.hole
+PRODUCT_NAME = Hole
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+
+SWIFT_VERSION = 5.10

@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# Tuist
+Derived/
+**/Tuist/.build/
+**/Tuist/Dependencies/
+.tuist-bin/
+*.xcodeproj
+*.xcworkspace
+!default.xcworkspace
+
+# Env / secrets
+*.local.xcconfig
+.env
+.env.local

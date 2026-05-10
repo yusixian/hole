@@ -1,0 +1,10 @@
+// Staging environment
+
+ENVIRONMENT = staging
+BUNDLE_ID = io.mewtant.hole.staging
+PRODUCT_NAME = Hole Staging
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+
+SWIFT_VERSION = 5.10
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) STAGING
