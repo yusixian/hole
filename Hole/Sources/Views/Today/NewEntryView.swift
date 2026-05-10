@@ -12,6 +12,7 @@ struct NewEntryView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @Environment(AICoordinator.self) private var aiCoordinator
+    @Environment(VaultManager.self) private var vault
 
     let mode: Mode
 
@@ -290,7 +291,7 @@ struct NewEntryView: View {
     }
 
     private func save() {
-        let store = EntryStore(context: context)
+        let store = EntryStore(context: context, vault: vault)
         do {
             let savedEntry: Entry
             switch mode {

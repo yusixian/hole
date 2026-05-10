@@ -1,38 +1,54 @@
 import SwiftUI
 import SwiftData
 
+enum SettingsRoute: Hashable {
+    case vaultEntries
+}
+
 struct SettingsView: View {
     @Environment(\.theme) private var theme
     @Environment(ThemeManager.self) private var themeManager
     @Environment(AICoordinator.self) private var aiCoordinator
+    @Environment(AppLockManager.self) private var appLock
+    @Environment(VaultManager.self) private var vault
     @Environment(\.modelContext) private var context
     @Query(sort: [SortDescriptor(\Persona.sortOrder, order: .forward)])
     private var personas: [Persona]
     @State private var showThemePicker = false
-    @State private var appLockEnabled: Bool = false
+    @State private var showVaultSetup = false
 
     var body: some View {
-        ZStack {
-            PaperBackground(theme: theme)
-            ScrollView {
-                VStack(alignment: .leading, spacing: 14) {
-                    MonthMasthead(date: .now)
-                    sectionHeader("settings.section.appearance")
-                    appearanceCard
-                    sectionHeader("settings.section.ai")
-                    aiCard
-                    sectionHeader("settings.section.privacy")
-                    privacyCard
-                    sectionHeader("settings.section.about")
-                    aboutCard
-                    Spacer(minLength: 40)
+        NavigationStack {
+            ZStack {
+                PaperBackground(theme: theme)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 14) {
+                        MonthMasthead(date: .now)
+                        sectionHeader("settings.section.appearance")
+                        appearanceCard
+                        sectionHeader("settings.section.ai")
+                        aiCard
+                        sectionHeader("settings.section.privacy")
+                        privacyCard
+                        sectionHeader("settings.section.about")
+                        aboutCard
+                        Spacer(minLength: 40)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
             }
-        }
-        .sheet(isPresented: $showThemePicker) {
-            ThemePickerView()
+            .navigationDestination(for: SettingsRoute.self) { route in
+                switch route {
+                case .vaultEntries: VaultEntriesView()
+                }
+            }
+            .sheet(isPresented: $showThemePicker) {
+                ThemePickerView()
+            }
+            .sheet(isPresented: $showVaultSetup) {
+                VaultSetupView()
+            }
         }
     }
 
@@ -123,19 +139,71 @@ struct SettingsView: View {
         }
     }
 
+    @ViewBuilder
     private var privacyCard: some View {
+        @Bindable var lock = appLock
         VStack(alignment: .leading, spacing: 12) {
-            Toggle(isOn: $appLockEnabled) {
-                Text("settings.appLock")
-                    .font(theme.fontFamily.bodyFont)
+            Toggle(isOn: Binding(
+                get: { lock.isEnabled },
+                set: { newValue in
+                    Task {
+                        if newValue {
+                            await lock.enable()
+                        } else {
+                            lock.disable()
+                        }
+                    }
+                }
+            )) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("settings.appLock")
+                        .font(theme.fontFamily.bodyFont)
+                    if !lock.biometryAvailable {
+                        Text("settings.appLock.unavailable")
+                            .font(.system(size: 11))
+                            .foregroundStyle(theme.palette.textMuted)
+                    }
+                }
             }
-            HStack {
-                Text("settings.vault")
-                    .font(theme.fontFamily.bodyFont)
-                Spacer()
-                Text("settings.notConfigured")
-                    .font(.system(size: 13))
-                    .foregroundStyle(theme.palette.textMuted)
+            .disabled(!appLock.biometryAvailable)
+
+            Divider().background(theme.palette.text.opacity(0.1))
+
+            if vault.isConfigured {
+                NavigationLink(value: SettingsRoute.vaultEntries) {
+                    HStack {
+                        Text("settings.vault.entries")
+                            .font(theme.fontFamily.bodyFont)
+                        Spacer()
+                        Text(vault.isUnlocked ? "vault.state.unlocked" : "vault.state.locked")
+                            .font(.system(size: 12))
+                            .foregroundStyle(theme.palette.textMuted)
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 10))
+                            .foregroundStyle(theme.palette.textMuted)
+                    }
+                }
+                .buttonStyle(.plain)
+                Button(role: .destructive) {
+                    vault.reset()
+                } label: {
+                    Text("settings.vault.reset")
+                        .font(.system(size: 13))
+                        .foregroundStyle(.red)
+                }
+            } else {
+                Button {
+                    showVaultSetup = true
+                } label: {
+                    HStack {
+                        Text("settings.vault.setup")
+                            .font(theme.fontFamily.bodyFont)
+                        Spacer()
+                        Image(systemName: "plus.circle")
+                    }
+                    .foregroundStyle(theme.palette.text)
+                }
+                .buttonStyle(.plain)
             }
         }
         .padding(16)

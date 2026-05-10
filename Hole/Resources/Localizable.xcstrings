@@ -2,6 +2,181 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "applock.reason" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock Hole" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁 Hole" } }
+      }
+    },
+    "applock.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Authenticate to keep your hole private." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁后才能查看你的树洞。" } }
+      }
+    },
+    "applock.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hole is locked" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Hole 已上锁" } }
+      }
+    },
+    "applock.unlock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁" } }
+      }
+    },
+    "settings.appLock.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Face ID / passcode unavailable on this device" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "此设备未配置 Face ID 或密码" } }
+      }
+    },
+    "settings.vault.entries" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Private locker" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "私密保险箱" } }
+      }
+    },
+    "settings.vault.reset" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reset vault (cannot recover entries)" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "重置保险箱（条目无法恢复）" } }
+      }
+    },
+    "settings.vault.setup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set up vault PIN" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置保险箱 PIN" } }
+      }
+    },
+    "vault.entries.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Empty vault" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保险箱空空" } }
+      }
+    },
+    "vault.entries.empty.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mark an entry as private to add it here." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "把条目设为私密即可放进这里。" } }
+      }
+    },
+    "vault.entries.locked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Vault is locked" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保险箱已锁" } }
+      }
+    },
+    "vault.entries.nav" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Vault" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保险箱" } }
+      }
+    },
+    "vault.lock.action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lock" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "锁定" } }
+      }
+    },
+    "vault.pin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "PIN" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "PIN" } }
+      }
+    },
+    "vault.pin.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Confirm PIN" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "再次输入 PIN" } }
+      }
+    },
+    "vault.pin.new" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New PIN" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新 PIN" } }
+      }
+    },
+    "vault.setup.nav" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set up vault" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置保险箱" } }
+      }
+    },
+    "vault.setup.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Set a vault PIN" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置保险箱 PIN" } }
+      }
+    },
+    "vault.setup.warning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your private entries are encrypted with this PIN. If you forget it, your entries cannot be recovered. Hole never stores or syncs the PIN." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "私密条目用此 PIN 加密。一旦遗忘无法恢复，Hole 也不会同步或保存这个 PIN。" } }
+      }
+    },
+    "vault.state.locked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Locked" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已锁" } }
+      }
+    },
+    "vault.state.unlocked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlocked" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已开" } }
+      }
+    },
+    "vault.unlock.action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁" } }
+      }
+    },
+    "vault.unlock.nav" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock vault" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁保险箱" } }
+      }
+    },
+    "vault.unlock.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter your vault PIN to read private entries." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "输入保险箱 PIN 才能阅读私密条目。" } }
+      }
+    },
+    "vault.unlock.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock vault" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "解锁保险箱" } }
+      }
+    },
     "ai.echo.loading" : {
       "extractionState" : "manual",
       "localizations" : {

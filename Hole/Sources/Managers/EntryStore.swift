@@ -4,9 +4,26 @@ import SwiftData
 @MainActor
 struct EntryStore {
     let context: ModelContext
+    let vault: VaultManager?
 
-    init(context: ModelContext) {
+    init(context: ModelContext, vault: VaultManager? = nil) {
         self.context = context
+        self.vault = vault
+    }
+
+    func encryptIfNeeded(_ entry: Entry) throws {
+        guard entry.isPrivate, let vault, vault.isUnlocked else { return }
+        let blob = try vault.encryptBody(entry.body)
+        entry.encryptedBlob = blob
+        entry.body = ""
+    }
+
+    func decryptIntoMemory(_ entry: Entry) throws -> String {
+        guard let blob = entry.encryptedBlob else { return entry.body }
+        guard let vault, vault.isUnlocked else {
+            throw VaultManager.VaultError.locked
+        }
+        return try vault.decryptBody(blob)
     }
 
     @discardableResult
@@ -22,6 +39,7 @@ struct EntryStore {
         for name in normalize(tagNames) {
             entry.tags.append(try upsertTag(named: name))
         }
+        try encryptIfNeeded(entry)
         try context.save()
         return entry
     }
@@ -35,7 +53,12 @@ struct EntryStore {
     ) throws {
         if let body { entry.body = body }
         if case let .some(value) = mood { entry.mood = value }
-        if let isPrivate { entry.isPrivate = isPrivate }
+        if let isPrivate {
+            if isPrivate == false {
+                entry.encryptedBlob = nil
+            }
+            entry.isPrivate = isPrivate
+        }
         if let tagNames {
             let names = normalize(tagNames)
             var tags: [Tag] = []
@@ -45,6 +68,7 @@ struct EntryStore {
             entry.tags = tags
         }
         entry.updatedAt = .now
+        try encryptIfNeeded(entry)
         try context.save()
     }
 
