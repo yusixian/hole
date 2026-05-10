@@ -78,4 +78,30 @@ final class StatsServiceTests: XCTestCase {
     func testAiUsageEmpty() throws {
         XCTAssertTrue(try stats.aiUsageCounts().isEmpty)
     }
+
+    func testOnThisDayMatchesPreviousYears() throws {
+        let cal = Calendar.current
+        let now = Date()
+        let lastYearSameDay = cal.date(byAdding: .year, value: -1, to: now)!
+        let twoYearsAgoSameDay = cal.date(byAdding: .year, value: -2, to: now)!
+        let unrelatedDay = cal.date(byAdding: .day, value: -3, to: now)!
+
+        _ = try store.create(body: "last year", createdAt: lastYearSameDay)
+        _ = try store.create(body: "two years ago", createdAt: twoYearsAgoSameDay)
+        _ = try store.create(body: "unrelated", createdAt: unrelatedDay)
+        _ = try store.create(body: "today")
+
+        let entries = try stats.entriesOnThisDay(asOf: now)
+        let bodies = entries.map(\.body).sorted()
+        XCTAssertEqual(bodies, ["last year", "two years ago"])
+    }
+
+    func testOnThisDayExcludesPrivate() throws {
+        let cal = Calendar.current
+        let lastYear = cal.date(byAdding: .year, value: -1, to: Date())!
+        _ = try store.create(body: "secret last year", isPrivate: true, createdAt: lastYear)
+        _ = try store.create(body: "public last year", createdAt: lastYear)
+        let entries = try stats.entriesOnThisDay()
+        XCTAssertEqual(entries.map(\.body), ["public last year"])
+    }
 }

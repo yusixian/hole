@@ -12,6 +12,7 @@ struct TodayView: View {
     private var recentEntries: [Entry]
 
     @State private var showCompose: Bool = false
+    @State private var onThisDayEntries: [Entry] = []
 
     private var todayEntries: [Entry] {
         let cal = Calendar.current
@@ -35,6 +36,9 @@ struct TodayView: View {
                                 .buttonStyle(.plain)
                             }
                         }
+                        if !onThisDayEntries.isEmpty {
+                            onThisDaySection
+                        }
                         Spacer(minLength: 40)
                     }
                     .padding(.horizontal, 20)
@@ -47,7 +51,56 @@ struct TodayView: View {
             .sheet(isPresented: $showCompose) {
                 NewEntryView(mode: .create)
             }
+            .task { reloadOnThisDay() }
+            .onChange(of: recentEntries.count) { _, _ in reloadOnThisDay() }
         }
+    }
+
+    private var onThisDaySection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 6) {
+                Image(systemName: "clock.arrow.circlepath")
+                    .foregroundStyle(theme.palette.accent)
+                SmallCapsLabel(text: String(localized: "today.onThisDay"), color: theme.palette.textMuted)
+            }
+            ForEach(onThisDayEntries) { entry in
+                NavigationLink(value: entry) {
+                    onThisDayCard(entry)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+
+    private func onThisDayCard(_ entry: Entry) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            SmallCapsLabel(text: yearLabel(entry.createdAt), color: theme.palette.textMuted)
+            Text(entry.body)
+                .font(theme.fontFamily.bodyFont)
+                .foregroundStyle(theme.palette.text)
+                .lineLimit(3)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(theme.palette.surface.opacity(0.6))
+        .overlay(
+            Rectangle().stroke(theme.palette.text.opacity(0.06), lineWidth: 0.5)
+        )
+    }
+
+    private func yearLabel(_ date: Date) -> String {
+        let cal = Calendar.current
+        let nowYear = cal.component(.year, from: .now)
+        let entryYear = cal.component(.year, from: date)
+        let yearsAgo = nowYear - entryYear
+        let key: String.LocalizationValue = yearsAgo == 1 ? "today.onThisDay.oneYearAgo" : "today.onThisDay.yearsAgo"
+        let template = String(localized: key)
+        return template.replacingOccurrences(of: "%d", with: "\(yearsAgo)")
+    }
+
+    private func reloadOnThisDay() {
+        let stats = StatsService(context: context)
+        onThisDayEntries = (try? stats.entriesOnThisDay()) ?? []
     }
 
     private var emptyTodayCard: some View {

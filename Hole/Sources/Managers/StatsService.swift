@@ -76,6 +76,31 @@ struct StatsService {
         return try context.fetchCount(descriptor)
     }
 
+    func entriesOnThisDay(asOf reference: Date = .now) throws -> [Entry] {
+        let calendar = Calendar.current
+        let referenceComponents = calendar.dateComponents([.month, .day], from: reference)
+        let referenceMonth = referenceComponents.month ?? 0
+        let referenceDay = referenceComponents.day ?? 0
+        let referenceYear = calendar.component(.year, from: reference)
+
+        let descriptor = FetchDescriptor<Entry>(
+            predicate: #Predicate { !$0.isPrivate },
+            sortBy: [SortDescriptor(\Entry.createdAt, order: .reverse)]
+        )
+        let all = try context.fetch(descriptor)
+        return all.filter { entry in
+            let comps = calendar.dateComponents([.year, .month, .day], from: entry.createdAt)
+            guard
+                let entryYear = comps.year,
+                let entryMonth = comps.month,
+                let entryDay = comps.day
+            else { return false }
+            return entryMonth == referenceMonth
+                && entryDay == referenceDay
+                && entryYear < referenceYear
+        }
+    }
+
     func aiUsageCounts() throws -> [String: Int] {
         let descriptor = FetchDescriptor<UsageEvent>()
         let events = try context.fetch(descriptor)

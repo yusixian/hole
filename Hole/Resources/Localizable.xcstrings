@@ -1101,6 +1101,27 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今天还是白纸" } }
       }
     },
+    "today.onThisDay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "On this day" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "去年今日" } }
+      }
+    },
+    "today.onThisDay.oneYearAgo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "1 year ago" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "1 年前" } }
+      }
+    },
+    "today.onThisDay.yearsAgo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%d years ago" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "%d 年前" } }
+      }
+    },
     "today.section" : {
       "extractionState" : "manual",
       "localizations" : {
