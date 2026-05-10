@@ -2,6 +2,55 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "ai.echo.loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Echo · listening" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "回声 · 倾听中" } }
+      }
+    },
+    "ai.suggestions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI suggestions" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 建议" } }
+      }
+    },
+    "ai.suggestion.mood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Suggested mood: %@" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "建议心情：%@" } }
+      }
+    },
+    "settings.ai.echo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI echo after writing" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写后 AI 回声" } }
+      }
+    },
+    "settings.ai.echo.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Local model. Skipped on private entries." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "本地模型，私密条目跳过。" } }
+      }
+    },
+    "settings.ai.persona" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Persona" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "人格" } }
+      }
+    },
+    "settings.section.ai" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI" } }
+      }
+    },
     "ai.echo.persona.default" : {
       "extractionState" : "manual",
       "localizations" : {

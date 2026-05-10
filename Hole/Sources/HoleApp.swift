@@ -4,6 +4,7 @@ import SwiftData
 @main
 struct HoleApp: App {
     @State private var themeManager = ThemeManager()
+    @State private var aiCoordinator = AICoordinator()
     private let modelContainer: ModelContainer
 
     init() {
@@ -16,6 +17,7 @@ struct HoleApp: App {
                 RootTabView()
             }
             .environment(themeManager)
+            .environment(aiCoordinator)
         }
         .modelContainer(modelContainer)
     }

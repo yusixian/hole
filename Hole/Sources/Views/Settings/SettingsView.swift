@@ -1,8 +1,13 @@
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
     @Environment(\.theme) private var theme
     @Environment(ThemeManager.self) private var themeManager
+    @Environment(AICoordinator.self) private var aiCoordinator
+    @Environment(\.modelContext) private var context
+    @Query(sort: [SortDescriptor(\Persona.sortOrder, order: .forward)])
+    private var personas: [Persona]
     @State private var showThemePicker = false
     @State private var appLockEnabled: Bool = false
 
@@ -14,6 +19,8 @@ struct SettingsView: View {
                     MonthMasthead(date: .now)
                     sectionHeader("settings.section.appearance")
                     appearanceCard
+                    sectionHeader("settings.section.ai")
+                    aiCard
                     sectionHeader("settings.section.privacy")
                     privacyCard
                     sectionHeader("settings.section.about")
@@ -73,6 +80,47 @@ struct SettingsView: View {
             Text("settings.mode")
         }
         .pickerStyle(.segmented)
+    }
+
+    @ViewBuilder
+    private var aiCard: some View {
+        @Bindable var coord = aiCoordinator
+        VStack(alignment: .leading, spacing: 12) {
+            Toggle(isOn: $coord.echoEnabled) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("settings.ai.echo")
+                        .font(theme.fontFamily.bodyFont)
+                    Text("settings.ai.echo.hint")
+                        .font(.system(size: 11))
+                        .foregroundStyle(theme.palette.textMuted)
+                }
+            }
+            personaPicker
+        }
+        .padding(16)
+        .background(theme.palette.surface)
+    }
+
+    @ViewBuilder
+    private var personaPicker: some View {
+        @Bindable var coord = aiCoordinator
+        if !personas.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("settings.ai.persona")
+                    .font(.system(size: 11, weight: .medium))
+                    .tracking(2)
+                    .textCase(.uppercase)
+                    .foregroundStyle(theme.palette.textMuted)
+                Picker(selection: $coord.activePersonaID) {
+                    ForEach(personas) { persona in
+                        Text(persona.name).tag(persona.id)
+                    }
+                } label: {
+                    Text("settings.ai.persona")
+                }
+                .pickerStyle(.segmented)
+            }
+        }
     }
 
     private var privacyCard: some View {

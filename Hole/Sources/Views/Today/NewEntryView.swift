@@ -10,6 +10,7 @@ struct NewEntryView: View {
     @Environment(\.theme) private var theme
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    @Environment(AICoordinator.self) private var aiCoordinator
 
     let mode: Mode
 
@@ -123,12 +124,16 @@ struct NewEntryView: View {
     private func save() {
         let store = EntryStore(context: context)
         do {
+            let savedEntry: Entry
             switch mode {
             case .create:
-                try store.create(body: text, mood: mood, tagNames: tags, isPrivate: isPrivate)
+                savedEntry = try store.create(body: text, mood: mood, tagNames: tags, isPrivate: isPrivate)
             case .edit(let entry):
                 try store.update(entry, body: text, mood: .some(mood), tagNames: tags, isPrivate: isPrivate)
+                aiCoordinator.clearInsights(on: entry)
+                savedEntry = entry
             }
+            aiCoordinator.reflectAfterSave(savedEntry, in: context)
             dismiss()
         } catch {
             saveError = "\(error)"
