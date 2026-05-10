@@ -2,6 +2,83 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "export.action" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Generate file" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "生成文件" } }
+      }
+    },
+    "export.format" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Format" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "格式" } }
+      }
+    },
+    "export.format.json" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "JSON" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "JSON" } }
+      }
+    },
+    "export.format.markdown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Markdown" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Markdown" } }
+      }
+    },
+    "export.includePrivate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Include private entries" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "包含私密条目" } }
+      }
+    },
+    "export.includePrivate.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Encrypted blobs are skipped; bodies are exported only when readable." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "加密内容会跳过，仅导出可读条目。" } }
+      }
+    },
+    "export.nav" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "导出" } }
+      }
+    },
+    "export.options" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Options" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选项" } }
+      }
+    },
+    "export.share" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Share %@" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "分享 %@" } }
+      }
+    },
+    "settings.export.entry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export entries" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "导出条目" } }
+      }
+    },
+    "settings.section.data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Data" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "数据" } }
+      }
+    },
     "settings.section.stats" : {
       "extractionState" : "manual",
       "localizations" : {

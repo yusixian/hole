@@ -4,6 +4,7 @@ import SwiftData
 enum SettingsRoute: Hashable {
     case vaultEntries
     case stats
+    case export
 }
 
 struct SettingsView: View {
@@ -33,6 +34,8 @@ struct SettingsView: View {
                         aiCard
                         sectionHeader("settings.section.privacy")
                         privacyCard
+                        sectionHeader("settings.section.data")
+                        exportLinkCard
                         sectionHeader("settings.section.about")
                         aboutCard
                         Spacer(minLength: 40)
@@ -45,6 +48,7 @@ struct SettingsView: View {
                 switch route {
                 case .vaultEntries: VaultEntriesView()
                 case .stats: StatsView()
+                case .export: ExportView()
                 }
             }
             .sheet(isPresented: $showThemePicker) {
@@ -100,6 +104,25 @@ struct SettingsView: View {
             Text("settings.mode")
         }
         .pickerStyle(.segmented)
+    }
+
+    private var exportLinkCard: some View {
+        NavigationLink(value: SettingsRoute.export) {
+            HStack {
+                Image(systemName: "square.and.arrow.up")
+                    .foregroundStyle(theme.palette.accent)
+                Text("settings.export.entry")
+                    .font(theme.fontFamily.bodyFont)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 10))
+                    .foregroundStyle(theme.palette.textMuted)
+            }
+            .foregroundStyle(theme.palette.text)
+            .padding(16)
+            .background(theme.palette.surface)
+        }
+        .buttonStyle(.plain)
     }
 
     private var statsLinkCard: some View {
