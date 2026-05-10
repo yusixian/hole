@@ -7,6 +7,7 @@ struct HoleApp: App {
     @State private var aiCoordinator = AICoordinator()
     @State private var appLock = AppLockManager()
     @State private var vault = VaultManager()
+    @State private var onboarding = OnboardingState()
     @Environment(\.scenePhase) private var scenePhase
     private let modelContainer: ModelContainer
 
@@ -20,11 +21,18 @@ struct HoleApp: App {
                 AppLockGate {
                     RootTabView()
                 }
+                .fullScreenCover(isPresented: Binding(
+                    get: { !onboarding.hasCompleted },
+                    set: { _ in }
+                )) {
+                    OnboardingView()
+                }
             }
             .environment(themeManager)
             .environment(aiCoordinator)
             .environment(appLock)
             .environment(vault)
+            .environment(onboarding)
             .onOpenURL { url in
                 handleIncomingURL(url)
             }

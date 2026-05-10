@@ -2,6 +2,118 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "onboarding.ai.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI lives quietly here. After you write, a small echo appears — never a notification, never a popup. You can turn it off in settings any time." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 在这里只是轻轻陪着你。写完后会有一段小回声，没有通知，没有弹窗。设置里随时可以关闭。" } }
+      }
+    },
+    "onboarding.ai.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A gentle AI" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "温和的 AI" } }
+      }
+    },
+    "onboarding.back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Back" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "上一步" } }
+      }
+    },
+    "onboarding.features.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Write text, record voice, attach photos. Mark anything as private and it skips AI entirely. The journal is the point — AI is just plus." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写下文字、录段语音、贴张照片。任何条目可标记为私密，完全跳过 AI。日记本身才是核心，AI 只是加分项。" } }
+      }
+    },
+    "onboarding.features.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A private journal" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "一本私密的日记" } }
+      }
+    },
+    "onboarding.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "下一步" } }
+      }
+    },
+    "onboarding.privacy.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All entries stay on this device. No analytics, no behavioural tracking. Only crash diagnostics via MetricKit, and you can turn that off too. Your data is yours, fully exportable." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "所有内容都留在这台设备。不接行为统计，仅通过 MetricKit 收集崩溃诊断，可关闭。你的数据属于你，可随时导出。" } }
+      }
+    },
+    "onboarding.privacy.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Yours, only yours" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "只属于你" } }
+      }
+    },
+    "onboarding.setup.appLock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lock with Face ID" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "用 Face ID 锁定" } }
+      }
+    },
+    "onboarding.setup.appLock.hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hole will require biometric unlock when reopened." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "重新打开时需要 Face ID 解锁。" } }
+      }
+    },
+    "onboarding.setup.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick the persona that will leave a small echo after each entry. You can change everything later in Settings." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "选择一个会在你写完后留下回声的人格。任何选择都可以稍后在设置里更改。" } }
+      }
+    },
+    "onboarding.setup.persona" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Default persona" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "默认人格" } }
+      }
+    },
+    "onboarding.setup.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Just one moment" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "最后一步" } }
+      }
+    },
+    "onboarding.start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "开始" } }
+      }
+    },
+    "onboarding.welcome.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A small place to talk to yourself, kept just on this phone, gently held by AI." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "和自己说话的小角落。完全留在这部手机上，由 AI 轻轻陪伴。" } }
+      }
+    },
+    "onboarding.welcome.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Welcome to Hole" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "欢迎来到 Hole" } }
+      }
+    },
     "intent.param.body" : {
       "extractionState" : "manual",
       "localizations" : {
