@@ -34,7 +34,7 @@ final class Persona {
 }
 
 extension Persona {
-    static let builtInSeeds: [Persona] = [
+    static func makeBuiltInSeeds() -> [Persona] { [
         Persona(
             id: "listener",
             name: String(localized: "persona.listener.name"),
@@ -71,5 +71,5 @@ extension Persona {
             isBuiltIn: true,
             sortOrder: 3
         )
-    ]
+    ] }
 }

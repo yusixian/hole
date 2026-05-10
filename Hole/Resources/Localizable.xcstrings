@@ -30,11 +30,109 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "深色" } }
       }
     },
+    "common.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "取消" } }
+      }
+    },
+    "common.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "删除" } }
+      }
+    },
     "common.done" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } },
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "完成" } }
+      }
+    },
+    "common.edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "编辑" } }
+      }
+    },
+    "common.save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保存" } }
+      }
+    },
+    "compose.body.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Whisper into the hole…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "悄悄对树洞说点什么…" } }
+      }
+    },
+    "compose.mood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mood" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "心情" } }
+      }
+    },
+    "compose.private" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mark as private (skip AI)" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "标记为私密（不参与 AI）" } }
+      }
+    },
+    "compose.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "隐私" } }
+      }
+    },
+    "compose.tags" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tags" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "标签" } }
+      }
+    },
+    "compose.title.edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit entry" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "编辑条目" } }
+      }
+    },
+    "compose.title.new" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New entry" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "新条目" } }
+      }
+    },
+    "entry.delete.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete this entry?" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "确认删除这条记录？" } }
+      }
+    },
+    "entry.private.banner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Private · skipped by AI" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "私密 · AI 已跳过" } }
+      }
+    },
+    "tag.input.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "+ tag" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "+ 标签" } }
       }
     },
     "masthead.section" : {

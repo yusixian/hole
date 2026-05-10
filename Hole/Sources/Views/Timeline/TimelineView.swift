@@ -11,21 +11,26 @@ struct TimelineView: View {
     private var entries: [Entry]
 
     var body: some View {
-        ZStack {
-            PaperBackground(theme: theme)
-            ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    MonthMasthead(date: .now)
-                    weeklyMoodStrip
-                    if entries.isEmpty {
-                        emptyState
-                    } else {
-                        timelineFeed
+        NavigationStack {
+            ZStack {
+                PaperBackground(theme: theme)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 18) {
+                        MonthMasthead(date: .now)
+                        weeklyMoodStrip
+                        if entries.isEmpty {
+                            emptyState
+                        } else {
+                            timelineFeed
+                        }
+                        Spacer(minLength: 40)
                     }
-                    Spacer(minLength: 40)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
+            }
+            .navigationDestination(for: Entry.self) { entry in
+                EntryDetailView(entry: entry)
             }
         }
     }
@@ -76,7 +81,10 @@ struct TimelineView: View {
                     .fill(theme.palette.text.opacity(0.2))
                     .frame(height: 0.5)
                 ForEach(group.1) { entry in
-                    entryRow(entry)
+                    NavigationLink(value: entry) {
+                        entryRow(entry)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }

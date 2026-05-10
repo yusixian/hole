@@ -30,7 +30,7 @@ enum ModelSchema {
     private static func seedBuiltInPersonasIfNeeded(in context: ModelContext) {
         let existing = (try? context.fetch(FetchDescriptor<Persona>())) ?? []
         let existingIDs = Set(existing.map(\.id))
-        for seed in Persona.builtInSeeds where !existingIDs.contains(seed.id) {
+        for seed in Persona.makeBuiltInSeeds() where !existingIDs.contains(seed.id) {
             context.insert(seed)
         }
         try? context.save()

@@ -11,28 +11,41 @@ struct TodayView: View {
     )
     private var recentEntries: [Entry]
 
+    @State private var showCompose: Bool = false
+
     private var todayEntries: [Entry] {
         let cal = Calendar.current
         return recentEntries.filter { cal.isDateInToday($0.createdAt) }
     }
 
     var body: some View {
-        ZStack {
-            PaperBackground(theme: theme)
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    MonthMasthead(date: .now)
-                    if todayEntries.isEmpty {
-                        emptyTodayCard
-                    } else {
-                        ForEach(todayEntries) { entry in
-                            todayEntryCard(entry)
+        NavigationStack {
+            ZStack {
+                PaperBackground(theme: theme)
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        MonthMasthead(date: .now)
+                        if todayEntries.isEmpty {
+                            emptyTodayCard
+                        } else {
+                            ForEach(todayEntries) { entry in
+                                NavigationLink(value: entry) {
+                                    todayEntryCard(entry)
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
+                        Spacer(minLength: 40)
                     }
-                    Spacer(minLength: 40)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
+            }
+            .navigationDestination(for: Entry.self) { entry in
+                EntryDetailView(entry: entry)
+            }
+            .sheet(isPresented: $showCompose) {
+                NewEntryView(mode: .create)
             }
         }
     }
@@ -47,9 +60,11 @@ struct TodayView: View {
                 .font(theme.fontFamily.bodyFont)
                 .foregroundStyle(theme.palette.textMuted)
             HStack(spacing: 10) {
-                quickAction("today.action.write", icon: "square.and.pencil")
-                quickAction("today.action.voice", icon: "mic")
-                quickAction("today.action.photo", icon: "photo")
+                quickAction("today.action.write", icon: "square.and.pencil") {
+                    showCompose = true
+                }
+                quickAction("today.action.voice", icon: "mic") {}
+                quickAction("today.action.photo", icon: "photo") {}
             }
             .padding(.top, 6)
         }
@@ -76,8 +91,12 @@ struct TodayView: View {
         .shadow(color: theme.palette.text.opacity(0.05), radius: 4, y: 2)
     }
 
-    private func quickAction(_ titleKey: LocalizedStringKey, icon: String) -> some View {
-        Button(action: {}) {
+    private func quickAction(
+        _ titleKey: LocalizedStringKey,
+        icon: String,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
             HStack(spacing: 6) {
                 Image(systemName: icon)
                 Text(titleKey)
