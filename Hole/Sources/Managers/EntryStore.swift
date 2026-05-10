@@ -49,7 +49,62 @@ struct EntryStore {
     }
 
     func delete(_ entry: Entry) throws {
+        let entryID = entry.id
         context.delete(entry)
+        try context.save()
+        if let dir = try? AttachmentStorage.directory(forEntryID: entryID) {
+            try? FileManager.default.removeItem(at: dir)
+        }
+    }
+
+    @discardableResult
+    func attachVoice(
+        to entry: Entry,
+        from sourceURL: URL,
+        transcript: String = "",
+        duration: TimeInterval = 0
+    ) throws -> VoiceAttachment {
+        let dir = try AttachmentStorage.directory(forEntryID: entry.id)
+        let dest = dir.appendingPathComponent("voice-\(UUID().uuidString).m4a")
+        try AttachmentStorage.moveTemp(sourceURL, to: dest)
+        let relative = AttachmentStorage.relativePath(for: dest)
+        let attachment = VoiceAttachment(
+            fileURL: relative,
+            transcript: transcript,
+            durationSec: duration
+        )
+        attachment.entry = entry
+        entry.voiceAttachments.append(attachment)
+        try context.save()
+        return attachment
+    }
+
+    @discardableResult
+    func attachImage(to entry: Entry, data: Data, fileExtension: String = "jpg") throws -> ImageAttachment {
+        let dir = try AttachmentStorage.directory(forEntryID: entry.id)
+        let dest = dir.appendingPathComponent("img-\(UUID().uuidString).\(fileExtension)")
+        try AttachmentStorage.write(data, to: dest)
+        let relative = AttachmentStorage.relativePath(for: dest)
+        let attachment = ImageAttachment(fileURL: relative)
+        attachment.entry = entry
+        entry.imageAttachments.append(attachment)
+        try context.save()
+        return attachment
+    }
+
+    func removeVoice(_ attachment: VoiceAttachment) throws {
+        if let abs = AttachmentStorage.absoluteURL(forRelative: attachment.fileURL) {
+            try? FileManager.default.removeItem(at: abs)
+        }
+        context.delete(attachment)
+        try context.save()
+    }
+
+    func removeImage(_ attachment: ImageAttachment) throws {
+        if let abs = AttachmentStorage.absoluteURL(forRelative: attachment.fileURL) {
+            try? FileManager.default.removeItem(at: abs)
+        }
+        context.delete(attachment)
         try context.save()
     }
 

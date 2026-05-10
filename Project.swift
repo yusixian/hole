@@ -24,6 +24,9 @@ let project: Project = .init(
                     ],
                     "UIUserInterfaceStyle": "Automatic",
                     "ITSAppUsesNonExemptEncryption": false,
+                    "NSMicrophoneUsageDescription": "Hole needs the microphone so you can record voice entries.",
+                    "NSSpeechRecognitionUsageDescription": "Hole transcribes your voice entries on-device so you can read them later.",
+                    "NSPhotoLibraryUsageDescription": "Hole attaches photos you pick to your entries; nothing is uploaded.",
                 ]
             ),
             sources: ["Hole/Sources/**"],

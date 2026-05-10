@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct NewEntryView: View {
     enum Mode {
@@ -21,6 +22,18 @@ struct NewEntryView: View {
     @State private var saveError: String? = nil
     @FocusState private var bodyFocused: Bool
 
+    @State private var recorder = AudioRecorder()
+    @State private var pendingVoice: PendingVoice? = nil
+    @State private var pendingImages: [Data] = []
+    @State private var photoSelections: [PhotosPickerItem] = []
+    @State private var transcribing: Bool = false
+
+    private struct PendingVoice {
+        let url: URL
+        let duration: TimeInterval
+        var transcript: String
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -28,6 +41,10 @@ struct NewEntryView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 18) {
                         bodyEditor
+                        sectionHeader("compose.attachments")
+                        attachmentBar
+                        if !pendingImages.isEmpty { pendingImagesPreview }
+                        if let pendingVoice { pendingVoicePreview(pendingVoice) }
                         sectionHeader("compose.mood")
                         MoodPicker(selection: $mood)
                         sectionHeader("compose.tags")
@@ -52,11 +69,19 @@ struct NewEntryView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("common.save") { save() }
-                        .disabled(text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        .disabled(saveDisabled)
                 }
             }
             .onAppear(perform: loadInitial)
+            .onChange(of: photoSelections) { _, newItems in
+                Task { await loadPhotoData(newItems) }
+            }
         }
+    }
+
+    private var saveDisabled: Bool {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty && pendingVoice == nil && pendingImages.isEmpty
     }
 
     private var navTitleKey: LocalizedStringKey {
@@ -98,6 +123,118 @@ struct NewEntryView: View {
             }
     }
 
+    private var attachmentBar: some View {
+        HStack(spacing: 10) {
+            recordButton
+            PhotosPicker(
+                selection: $photoSelections,
+                maxSelectionCount: 4,
+                matching: .images
+            ) {
+                Label("compose.addPhoto", systemImage: "photo")
+                    .font(.system(size: 12, weight: .medium))
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .foregroundStyle(theme.palette.text)
+                    .overlay(
+                        Rectangle().stroke(theme.palette.text, lineWidth: 0.6)
+                    )
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var recordButton: some View {
+        switch recorder.phase {
+        case .idle, .failed:
+            Button {
+                Task { await recorder.start() }
+            } label: {
+                Label("compose.record", systemImage: "mic")
+                    .font(.system(size: 12, weight: .medium))
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .foregroundStyle(theme.palette.text)
+                    .overlay(Rectangle().stroke(theme.palette.text, lineWidth: 0.6))
+            }
+            .buttonStyle(.plain)
+        case .recording:
+            Button {
+                recorder.stop()
+                if case let .finished(url, duration) = recorder.phase {
+                    Task { await capturePending(url: url, duration: duration) }
+                }
+            } label: {
+                Label(formatTime(recorder.elapsed), systemImage: "stop.circle.fill")
+                    .font(.system(size: 12, weight: .medium))
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            .buttonStyle(.plain)
+        case .finished:
+            EmptyView()
+        }
+    }
+
+    private var pendingImagesPreview: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(Array(pendingImages.enumerated()), id: \.offset) { index, data in
+                    if let img = UIImage(data: data) {
+                        ZStack(alignment: .topTrailing) {
+                            Image(uiImage: img)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipped()
+                            Button {
+                                pendingImages.remove(at: index)
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundStyle(.white)
+                                    .background(Circle().fill(.black.opacity(0.5)))
+                                    .padding(4)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private func pendingVoicePreview(_ pv: PendingVoice) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                Image(systemName: "waveform")
+                Text(formatTime(pv.duration))
+                    .font(.system(size: 12, weight: .medium))
+                Spacer()
+                if transcribing {
+                    ProgressView().controlSize(.small)
+                }
+                Button {
+                    pendingVoice = nil
+                    try? FileManager.default.removeItem(at: pv.url)
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(theme.palette.textMuted)
+                }
+                .buttonStyle(.plain)
+            }
+            if !pv.transcript.isEmpty {
+                Text(pv.transcript)
+                    .font(.system(size: 12))
+                    .foregroundStyle(theme.palette.text)
+                    .lineSpacing(2)
+            }
+        }
+        .padding(12)
+        .background(theme.palette.surface)
+    }
+
     private var privateToggle: some View {
         Toggle(isOn: $isPrivate) {
             HStack(spacing: 6) {
@@ -121,6 +258,37 @@ struct NewEntryView: View {
         isPrivate = entry.isPrivate
     }
 
+    private func loadPhotoData(_ items: [PhotosPickerItem]) async {
+        var collected: [Data] = []
+        for item in items {
+            if let data = try? await item.loadTransferable(type: Data.self) {
+                collected.append(data)
+            }
+        }
+        await MainActor.run {
+            pendingImages.append(contentsOf: collected)
+            photoSelections = []
+        }
+    }
+
+    private func capturePending(url: URL, duration: TimeInterval) async {
+        await MainActor.run {
+            pendingVoice = PendingVoice(url: url, duration: duration, transcript: "")
+            transcribing = true
+        }
+        let transcript = await SpeechTranscriber.transcribe(url: url)
+        await MainActor.run {
+            if pendingVoice?.url == url {
+                pendingVoice?.transcript = transcript
+                if text.isEmpty, !transcript.isEmpty {
+                    text = transcript
+                }
+            }
+            transcribing = false
+            recorder.reset()
+        }
+    }
+
     private func save() {
         let store = EntryStore(context: context)
         do {
@@ -133,10 +301,29 @@ struct NewEntryView: View {
                 aiCoordinator.clearInsights(on: entry)
                 savedEntry = entry
             }
+            try persistAttachments(to: savedEntry, store: store)
             aiCoordinator.reflectAfterSave(savedEntry, in: context)
             dismiss()
         } catch {
             saveError = "\(error)"
         }
+    }
+
+    private func persistAttachments(to entry: Entry, store: EntryStore) throws {
+        if let pv = pendingVoice {
+            try store.attachVoice(to: entry, from: pv.url, transcript: pv.transcript, duration: pv.duration)
+            pendingVoice = nil
+        }
+        for data in pendingImages {
+            try store.attachImage(to: entry, data: data)
+        }
+        pendingImages = []
+    }
+
+    private func formatTime(_ interval: TimeInterval) -> String {
+        let total = Int(interval)
+        let m = total / 60
+        let s = total % 60
+        return String(format: "%d:%02d", m, s)
     }
 }

@@ -114,6 +114,27 @@
         "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "保存" } }
       }
     },
+    "compose.addPhoto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Photo" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "图片" } }
+      }
+    },
+    "compose.attachments" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Attachments" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "附件" } }
+      }
+    },
+    "compose.record" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Record" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "录音" } }
+      }
+    },
     "compose.body.placeholder" : {
       "extractionState" : "manual",
       "localizations" : {

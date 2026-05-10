@@ -22,7 +22,15 @@ struct EntryDetailView: View {
                     if entry.isPrivate {
                         privateBanner
                     }
-                    DropCapText(text: entry.body)
+                    if !entry.body.isEmpty {
+                        DropCapText(text: entry.body)
+                    }
+                    if !entry.imageAttachments.isEmpty {
+                        imageGallery
+                    }
+                    if !entry.voiceAttachments.isEmpty {
+                        voiceList
+                    }
                     if !entry.tags.isEmpty {
                         FlowLayout(spacing: 6) {
                             ForEach(entry.tags) { tag in
@@ -104,6 +112,22 @@ struct EntryDetailView: View {
         .overlay(
             Rectangle().stroke(theme.palette.textMuted, style: StrokeStyle(lineWidth: 0.5, dash: [3, 2]))
         )
+    }
+
+    private var imageGallery: some View {
+        VStack(spacing: 6) {
+            ForEach(entry.imageAttachments) { att in
+                AttachmentImageView(attachment: att)
+            }
+        }
+    }
+
+    private var voiceList: some View {
+        VStack(spacing: 6) {
+            ForEach(entry.voiceAttachments) { att in
+                AudioPlayerRow(attachment: att)
+            }
+        }
     }
 
     private var echoLoading: some View {
