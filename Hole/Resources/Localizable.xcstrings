@@ -2,6 +2,97 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "intent.param.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Body" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "正文" } }
+      }
+    },
+    "intent.param.count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Count" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "条数" } }
+      }
+    },
+    "intent.param.mood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mood (1-5)" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "心情 (1-5)" } }
+      }
+    },
+    "intent.param.query" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Query" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关键词" } }
+      }
+    },
+    "intent.param.tags" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tags" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "标签" } }
+      }
+    },
+    "intent.recent.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Read your most recent Hole entries." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "读取你最近的 Hole 条目。" } }
+      }
+    },
+    "intent.recent.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Read recent Hole entries" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "读取最近的 Hole 条目" } }
+      }
+    },
+    "intent.search.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search Hole entries by keyword." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "按关键词搜索 Hole 条目。" } }
+      }
+    },
+    "intent.search.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Search Hole entries" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "搜索 Hole 条目" } }
+      }
+    },
+    "intent.streak.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Get your current Hole writing streak in days." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "获取你 Hole 当前的连续写作天数。" } }
+      }
+    },
+    "intent.streak.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hole writing streak" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "Hole 连续天数" } }
+      }
+    },
+    "intent.write.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add a new entry to your Hole." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "在 Hole 中新增一条记录。" } }
+      }
+    },
+    "intent.write.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Write a Hole entry" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写一条 Hole" } }
+      }
+    },
     "export.action" : {
       "extractionState" : "manual",
       "localizations" : {

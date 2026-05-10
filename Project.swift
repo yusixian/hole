@@ -27,6 +27,13 @@ let project: Project = .init(
                     "NSMicrophoneUsageDescription": "Hole needs the microphone so you can record voice entries.",
                     "NSSpeechRecognitionUsageDescription": "Hole transcribes your voice entries on-device so you can read them later.",
                     "NSPhotoLibraryUsageDescription": "Hole attaches photos you pick to your entries; nothing is uploaded.",
+                    "CFBundleURLTypes": [
+                        [
+                            "CFBundleTypeRole": "Editor",
+                            "CFBundleURLName": "io.mewtant.hole",
+                            "CFBundleURLSchemes": ["hole"]
+                        ]
+                    ],
                 ]
             ),
             sources: ["Hole/Sources/**"],
