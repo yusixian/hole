@@ -1,0 +1,363 @@
+{
+  "sourceLanguage" : "en",
+  "version" : "1.0",
+  "strings" : {
+    "ai.echo.persona.default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Listener" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "倾听者" } }
+      }
+    },
+    "appearance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "外观" } }
+      }
+    },
+    "appearance.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "浅色" } }
+      }
+    },
+    "appearance.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "深色" } }
+      }
+    },
+    "common.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "完成" } }
+      }
+    },
+    "masthead.section" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hole · Daily" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "树洞 · 每日" } }
+      }
+    },
+    "mood.veryLow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Very low" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "很低落" } }
+      }
+    },
+    "mood.low" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Low" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "低落" } }
+      }
+    },
+    "mood.neutral" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Neutral" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "平和" } }
+      }
+    },
+    "mood.good" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Good" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "舒畅" } }
+      }
+    },
+    "mood.veryGood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Very good" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "很好" } }
+      }
+    },
+    "persona.listener.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Listener" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "倾听者" } }
+      }
+    },
+    "persona.warmFriend.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Warm Friend" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "暖友" } }
+      }
+    },
+    "persona.wiseMentor.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Wise Mentor" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "智慧导师" } }
+      }
+    },
+    "persona.mirror.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mirror" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "反思镜子" } }
+      }
+    },
+    "settings.about.tagline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A local-first, AI-augmented private journal for your inner voice." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "本地优先、AI 陪伴的私密树洞日记。" } }
+      }
+    },
+    "settings.appLock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "App lock (Face ID)" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "应用锁（Face ID）" } }
+      }
+    },
+    "settings.mode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mode" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "模式" } }
+      }
+    },
+    "settings.mode.auto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Auto" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "自动" } }
+      }
+    },
+    "settings.mode.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "浅色" } }
+      }
+    },
+    "settings.mode.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "深色" } }
+      }
+    },
+    "settings.notConfigured" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not set" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "未设置" } }
+      }
+    },
+    "settings.section.about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "About" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "关于" } }
+      }
+    },
+    "settings.section.appearance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "外观" } }
+      }
+    },
+    "settings.section.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "隐私" } }
+      }
+    },
+    "settings.theme" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Theme" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "主题" } }
+      }
+    },
+    "settings.vault" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Vault password" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "私密密码" } }
+      }
+    },
+    "tab.calendar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calendar" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "日历" } }
+      }
+    },
+    "tab.settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "设置" } }
+      }
+    },
+    "tab.timeline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Timeline" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "时间线" } }
+      }
+    },
+    "tab.today" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今日" } }
+      }
+    },
+    "theme.default.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Default · Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "默认 · 深" } }
+      }
+    },
+    "theme.default.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Default · Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "默认 · 浅" } }
+      }
+    },
+    "theme.linen.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Linen · Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "亚麻 · 深" } }
+      }
+    },
+    "theme.linen.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Linen · Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "亚麻 · 浅" } }
+      }
+    },
+    "theme.newsprint.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Newsprint · Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "报纸 · 深" } }
+      }
+    },
+    "theme.newsprint.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Newsprint · Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "报纸 · 浅" } }
+      }
+    },
+    "theme.nightInk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Night Ink" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "夜墨" } }
+      }
+    },
+    "theme.washi.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Washi · Dark" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "和纸 · 深" } }
+      }
+    },
+    "theme.washi.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Washi · Light" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "和纸 · 浅" } }
+      }
+    },
+    "timeline.empty.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your timeline will fill in as you write." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写下第一段心事，时间线就会慢慢填满。" } }
+      }
+    },
+    "timeline.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "An empty page" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "尚未落笔" } }
+      }
+    },
+    "timeline.group.today" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今天" } }
+      }
+    },
+    "timeline.group.yesterday" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Yesterday" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "昨天" } }
+      }
+    },
+    "timeline.weekMood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This week" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "本周心情" } }
+      }
+    },
+    "today.action.photo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Photo" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "照片" } }
+      }
+    },
+    "today.action.voice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Voice" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "录音" } }
+      }
+    },
+    "today.action.write" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Write" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写下" } }
+      }
+    },
+    "today.empty.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "What do you want to whisper into the hole?" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今天有什么想悄悄说给树洞？" } }
+      }
+    },
+    "today.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A blank page" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今天还是白纸" } }
+      }
+    },
+    "today.section" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "今日" } }
+      }
+    }
+  }
+}

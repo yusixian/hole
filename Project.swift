@@ -14,6 +14,8 @@ let project: Project = .init(
                     "CFBundleDisplayName": "$(PRODUCT_NAME)",
                     "CFBundleShortVersionString": "$(MARKETING_VERSION)",
                     "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+                    "CFBundleDevelopmentRegion": "en",
+                    "CFBundleLocalizations": ["en", "zh-Hans"],
                     "ENVIRONMENT": "$(ENVIRONMENT)",
                     "BUNDLE_ID": "$(BUNDLE_ID)",
                     "UILaunchScreen": [
