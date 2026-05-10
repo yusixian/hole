@@ -2,6 +2,97 @@
   "sourceLanguage" : "en",
   "version" : "1.0",
   "strings" : {
+    "settings.section.stats" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stats" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "统计" } }
+      }
+    },
+    "settings.stats.entry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open stats" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "查看统计" } }
+      }
+    },
+    "stats.aiUsage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI usage" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "AI 用量" } }
+      }
+    },
+    "stats.entries.unit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "entries" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "条" } }
+      }
+    },
+    "stats.monthMood" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This month’s mood" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "本月情绪曲线" } }
+      }
+    },
+    "stats.nav" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stats" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "统计" } }
+      }
+    },
+    "stats.streak" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Writing streak" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "连续天数" } }
+      }
+    },
+    "stats.streak.unit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "days in a row" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "天连续" } }
+      }
+    },
+    "stats.thisMonth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This month" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "本月" } }
+      }
+    },
+    "stats.usage.autoTag" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Auto-tagging" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "自动标签" } }
+      }
+    },
+    "stats.usage.chat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Chat" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "对话" } }
+      }
+    },
+    "stats.usage.echo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Write echo" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "写后回声" } }
+      }
+    },
+    "stats.usage.summary" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Summary" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "摘要" } }
+      }
+    },
     "applock.reason" : {
       "extractionState" : "manual",
       "localizations" : {

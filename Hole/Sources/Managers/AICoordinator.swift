@@ -46,6 +46,7 @@ final class AICoordinator {
                 let insight = try await provider.reflect(on: body, persona: snapshot, language: language)
                 await MainActor.run {
                     apply(insight: insight, to: entry)
+                    recordUsage(.aiEcho, in: context)
                     try? context.save()
                     self.inFlightEntries.remove(entryID)
                 }
@@ -56,6 +57,12 @@ final class AICoordinator {
                 }
             }
         }
+    }
+
+    private func recordUsage(_ kind: UsageEvent.Kind, in context: ModelContext) {
+        let provider: UsageEvent.Provider = (self.provider.kind == .localStub) ? .local : .local
+        let event = UsageEvent(kind: kind, provider: provider)
+        context.insert(event)
     }
 
     func clearInsights(on entry: Entry) {

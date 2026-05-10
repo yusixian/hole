@@ -3,6 +3,7 @@ import SwiftData
 
 enum SettingsRoute: Hashable {
     case vaultEntries
+    case stats
 }
 
 struct SettingsView: View {
@@ -24,6 +25,8 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 14) {
                         MonthMasthead(date: .now)
+                        sectionHeader("settings.section.stats")
+                        statsLinkCard
                         sectionHeader("settings.section.appearance")
                         appearanceCard
                         sectionHeader("settings.section.ai")
@@ -41,6 +44,7 @@ struct SettingsView: View {
             .navigationDestination(for: SettingsRoute.self) { route in
                 switch route {
                 case .vaultEntries: VaultEntriesView()
+                case .stats: StatsView()
                 }
             }
             .sheet(isPresented: $showThemePicker) {
@@ -96,6 +100,25 @@ struct SettingsView: View {
             Text("settings.mode")
         }
         .pickerStyle(.segmented)
+    }
+
+    private var statsLinkCard: some View {
+        NavigationLink(value: SettingsRoute.stats) {
+            HStack {
+                Image(systemName: "chart.bar.xaxis")
+                    .foregroundStyle(theme.palette.accent)
+                Text("settings.stats.entry")
+                    .font(theme.fontFamily.bodyFont)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 10))
+                    .foregroundStyle(theme.palette.textMuted)
+            }
+            .foregroundStyle(theme.palette.text)
+            .padding(16)
+            .background(theme.palette.surface)
+        }
+        .buttonStyle(.plain)
     }
 
     @ViewBuilder
